@@ -1,0 +1,23 @@
+{
+  "rooms": [
+    {
+      "id": 1,
+      "name": "Domino Room",
+      "description": "A room for playing dominoes.",
+      "rating": 4.5,
+      "comments": [
+        { "user": "Alice", "comment": "Great room!", "rating": 5 }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Uno Room",
+      "description": "A room for playing Uno.",
+      "rating": 4.0,
+      "comments": []
+    }
+  ],
+  "users": [
+    { "id": 1, "username": "user1", "password": "pass1" }
+  ]
+} 
