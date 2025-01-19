@@ -19,9 +19,9 @@ const Header = () => {
       {/* Logo Section */}
       <div className="flex items-center">
         <img
-          src="src/assets/gamelogo.png"
+          src="src/assets/gamelogo.jpeg"
           alt="Logo"
-          className="h-20 mr-3"
+          className="h-[100px] mr-3"
         />
       </div>
 

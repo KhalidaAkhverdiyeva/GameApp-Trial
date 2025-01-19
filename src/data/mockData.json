@@ -1,23 +1,64 @@
 {
-  "rooms": [
-    {
-      "id": 1,
-      "name": "Domino Room",
-      "description": "A room for playing dominoes.",
-      "rating": 4.5,
-      "comments": [
-        { "user": "Alice", "comment": "Great room!", "rating": 5 }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Uno Room",
-      "description": "A room for playing Uno.",
-      "rating": 4.0,
-      "comments": []
-    }
-  ],
-  "users": [
-    { "id": 1, "username": "user1", "password": "pass1" }
-  ]
-} 
+    "rooms": [
+      {
+        "id": 1,
+        "name": "Domino Room",
+        "description": "A room for playing dominoes.",
+        "rating": 4.5,
+        "comments": [
+          { "user": "Alice", "comment": "Great room!", "rating": 5 }
+        ],
+        "image": "/room-images/domino-room.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Uno Room",
+        "description": "A room for playing Uno.",
+        "rating": 4.0,
+        "comments": [],
+        "image": "/room-images/uno-room.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Chess Room",
+        "description": "A room for playing chess.",
+        "rating": 4.8,
+        "comments": [
+          { "user": "Bob", "comment": "Challenging games here!", "rating": 4 }
+        ],
+        "image": "/room-images/chess-room.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Poker Room",
+        "description": "A room for playing poker.",
+        "rating": 4.7,
+        "comments": [
+          { "user": "Charlie", "comment": "Great atmosphere!", "rating": 5 }
+        ],
+        "image": "/room-images/poker-room.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Scrabble Room",
+        "description": "A room for playing Scrabble.",
+        "rating": 4.3,
+        "comments": [
+          { "user": "Diana", "comment": "Fun and challenging!", "rating": 4 }
+        ],
+        "image": "/room-images/scrabble-room.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Monopoly Room",
+        "description": "A room for playing Monopoly.",
+        "rating": 4.2,
+        "comments": [],
+        "image": "/room-images/monopoly-room.jpg"
+      }
+    ],
+    "users": [
+      { "id": 1, "username": "user1", "password": "pass1" }
+    ]
+  }
+  
