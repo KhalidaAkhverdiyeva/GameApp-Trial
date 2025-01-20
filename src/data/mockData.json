@@ -8,7 +8,7 @@
         "comments": [
           { "user": "Alice", "comment": "Great room!", "rating": 5 }
         ],
-        "image": "public/domino.jpg"
+        "image": "assets/domino.jpg"
       },
       {
         "id": 2,
@@ -16,7 +16,7 @@
         "description": "A room for playing Uno.",
         "rating": 4.0,
         "comments": [],
-        "image": "public/uno.jpg"
+        "image": "assets/uno.jpg"
       },
       {
         "id": 3,
