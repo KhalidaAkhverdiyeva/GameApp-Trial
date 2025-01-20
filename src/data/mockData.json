@@ -8,7 +8,7 @@
         "comments": [
           { "user": "Alice", "comment": "Great room!", "rating": 5 }
         ],
-        "image": "assets/domino.jpg"
+        "image": "/assets/domino.jpg"
       },
       {
         "id": 2,
@@ -16,7 +16,7 @@
         "description": "A room for playing Uno.",
         "rating": 4.0,
         "comments": [],
-        "image": "assets/uno2.jpg"
+        "image": "/assets/uno2.jpg"
       },
       {
         "id": 3,
@@ -26,7 +26,7 @@
         "comments": [
           { "user": "Bob", "comment": "Challenging games here!", "rating": 4 }
         ],
-        "image": "assets/chess2.jpg"
+        "image": "/assets/chess2.jpg"
       },
       {
         "id": 4,
@@ -36,7 +36,7 @@
         "comments": [
           { "user": "Charlie", "comment": "Great atmosphere!", "rating": 5 }
         ],
-        "image": "assets/poker.jpg"
+        "image": "/assets/poker.jpg"
       },
       {
         "id": 5,
@@ -46,7 +46,7 @@
         "comments": [
           { "user": "Diana", "comment": "Fun and challenging!", "rating": 4 }
         ],
-        "image": "assets/scrabble.jpg"
+        "image": "/assets/scrabble.jpg"
       },
       {
         "id": 6,
@@ -54,7 +54,7 @@
         "description": "A room for playing Monopoly.",
         "rating": 4.2,
         "comments": [],
-        "image": "assets/monopoly.jpg"
+        "image": "/assets/monopoly.jpg"
       },
       {
         "id": 7,
@@ -64,7 +64,7 @@
         "comments": [
           { "user": "Emily", "comment": "Great fun for groups!", "rating": 5 }
         ],
-        "image": "assets/dart.jpg"
+        "image": "/assets/dart.jpg"
       },
       {
         "id": 8,
@@ -74,7 +74,7 @@
         "comments": [
           { "user": "Frank", "comment": "Engaging and entertaining!", "rating": 5 }
         ],
-        "image": "assets/billiards.jpg"
+        "image": "/assets/billiards.jpg"
       },
       {
         "id": 9,
@@ -82,7 +82,7 @@
         "description": "A room for playing table tennis.",
         "rating": 4.7,
         "comments": [],
-        "image": "assets/tabletennis.jpg"
+        "image": "/assets/tabletennis.jpg"
       },
       {
         "id": 10,
@@ -92,7 +92,7 @@
         "comments": [
           { "user": "George", "comment": "Best FIFA experience ever!", "rating": 5 }
         ],
-        "image": "assets/fifia.jpg"
+        "image": "/assets/fifia.jpg"
       },
       {
         "id": 11,
@@ -100,7 +100,7 @@
         "description": "A room for quiz nights.",
         "rating": 4.5,
         "comments": [],
-        "image": "assets/quiz.jpg"
+        "image": "/assets/quiz.jpg"
       },
       {
         "id": 12,
@@ -110,7 +110,7 @@
         "comments": [
           { "user": "Hannah", "comment": "Fun with family and friends!", "rating": 4 }
         ],
-        "image": "assets/jenga.jpg"
+        "image": "/assets/jenga.jpg"
       },
       {
         "id": 13,
@@ -118,7 +118,7 @@
         "description": "A room for playing Guess Who.",
         "rating": 4.3,
         "comments": [],
-        "image": "assets/guesswho.jpg"
+        "image": "/assets/guesswho.jpg"
       },
       {
         "id": 14,
@@ -128,7 +128,7 @@
         "comments": [
           { "user": "Ian", "comment": "Perfect for parties!", "rating": 5 }
         ],
-        "image": "assets/beerpong.jpg"
+        "image": "/assets/beerpong.jpg"
       }
     ],
     "users": [

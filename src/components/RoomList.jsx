@@ -7,6 +7,7 @@ import Skeleton from '@mui/material/Skeleton';
 const RoomList = () => {
   const [loading, setLoading] = useState(true);
   const [filteredRooms, setFilteredRooms] = useState(mockData.rooms);
+  
 
 
   useEffect(() => {
@@ -54,6 +55,7 @@ const RoomList = () => {
               </div>
             ))
           : filteredRooms.map(room => (
+            <Link to={`/rooms/${room.id}`} key={room.id}>
               <div
                 key={room.id}
                 className="border-solid border-[1px] border-[#eae8e8] rounded-[20px] shadow-md overflow-hidden relative group transition-all duration-500"
@@ -63,6 +65,8 @@ const RoomList = () => {
                   <img
                     src={room.image}
                     alt={`${room.name} Image`}
+                    loading="lazy"
+                    width="600" height="400"
                     className="w-full h-[350px] object-cover opacity-90 transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-10"></div>
@@ -82,15 +86,14 @@ const RoomList = () => {
                   {/* Description and Actions */}
                   <div className="mt-auto">
                     <p className="text-sm text-gray-300 mb-4">{room.description}</p>
-                    {/* Price */}
                     <div className="text-lg font-bold mb-2">$20 per hour</div>
-                    {/* More Button */}
-                    <Link to={`/rooms/${room.id}`} className="text-orange-400 hover:underline">
+                    <button  className="text-orange-400 hover:underline">
                       More
-                    </Link>
+                    </button>
                   </div>
                 </div>
-              </div>
+              </div></Link>
+            
             ))}
       </div>
     </div>
