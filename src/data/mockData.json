@@ -16,7 +16,7 @@
         "description": "A room for playing Uno.",
         "rating": 4.0,
         "comments": [],
-        "image": "assets/uno.jpg"
+        "image": "assets/uno2.jpg"
       },
       {
         "id": 3,
@@ -26,7 +26,7 @@
         "comments": [
           { "user": "Bob", "comment": "Challenging games here!", "rating": 4 }
         ],
-        "image": "public/assets/domino.jpg"
+        "image": "assets/chess2.jpg"
       },
       {
         "id": 4,
@@ -36,7 +36,7 @@
         "comments": [
           { "user": "Charlie", "comment": "Great atmosphere!", "rating": 5 }
         ],
-        "image": "/room-images/poker-room.jpg"
+        "image": "assets/poker.jpg"
       },
       {
         "id": 5,
@@ -46,7 +46,7 @@
         "comments": [
           { "user": "Diana", "comment": "Fun and challenging!", "rating": 4 }
         ],
-        "image": "/room-images/scrabble-room.jpg"
+        "image": "assets/scrabble.jpg"
       },
       {
         "id": 6,
@@ -54,7 +54,81 @@
         "description": "A room for playing Monopoly.",
         "rating": 4.2,
         "comments": [],
-        "image": "/room-images/monopoly-room.jpg"
+        "image": "assets/monopoly.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Darts Room",
+        "description": "A room for playing darts.",
+        "rating": 4.6,
+        "comments": [
+          { "user": "Emily", "comment": "Great fun for groups!", "rating": 5 }
+        ],
+        "image": "assets/dart.jpg"
+      },
+      {
+        "id": 8,
+        "name": "Billiards Room",
+        "description": "A room for playing Billiards.",
+        "rating": 4.9,
+        "comments": [
+          { "user": "Frank", "comment": "Engaging and entertaining!", "rating": 5 }
+        ],
+        "image": "assets/billiards.jpg"
+      },
+      {
+        "id": 9,
+        "name": "Table Tennis Room",
+        "description": "A room for playing table tennis.",
+        "rating": 4.7,
+        "comments": [],
+        "image": "assets/tabletennis.jpg"
+      },
+      {
+        "id": 10,
+        "name": "FIFA Room",
+        "description": "A room for playing FIFA.",
+        "rating": 4.8,
+        "comments": [
+          { "user": "George", "comment": "Best FIFA experience ever!", "rating": 5 }
+        ],
+        "image": "assets/fifia.jpg"
+      },
+      {
+        "id": 11,
+        "name": "Quiz Night Room",
+        "description": "A room for quiz nights.",
+        "rating": 4.5,
+        "comments": [],
+        "image": "assets/quiz.jpg"
+      },
+      {
+        "id": 12,
+        "name": "Jenga Room",
+        "description": "A room for playing Jenga.",
+        "rating": 4.4,
+        "comments": [
+          { "user": "Hannah", "comment": "Fun with family and friends!", "rating": 4 }
+        ],
+        "image": "assets/jenga.jpg"
+      },
+      {
+        "id": 13,
+        "name": "Guess Who Room",
+        "description": "A room for playing Guess Who.",
+        "rating": 4.3,
+        "comments": [],
+        "image": "assets/guesswho.jpg"
+      },
+      {
+        "id": 14,
+        "name": "Beer Pong Room",
+        "description": "A room for playing beer pong.",
+        "rating": 4.7,
+        "comments": [
+          { "user": "Ian", "comment": "Perfect for parties!", "rating": 5 }
+        ],
+        "image": "assets/beerpong.jpg"
       }
     ],
     "users": [
