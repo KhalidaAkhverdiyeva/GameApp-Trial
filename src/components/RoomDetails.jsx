@@ -3,11 +3,13 @@ import { useParams } from 'react-router-dom';
 import mockData from '../data/mockData.json';
 import { CircularProgress, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { Star, Comment, StarBorder, StarHalf } from '@mui/icons-material'; // Import icons
+
 
 const RoomDetails = () => {
-  const { id } = useParams(); 
-  const [loading, setLoading] = useState(true); 
-  const [room, setRoom] = useState(null); 
+  const { id } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [room, setRoom] = useState(null);
 
   useEffect(() => {
     setLoading(true);
@@ -15,9 +17,9 @@ const RoomDetails = () => {
       const roomDetail = mockData.rooms.find(room => room.id === parseInt(id));
       setRoom(roomDetail);
       setLoading(false);
-    }, 2000); 
+    }, 2000);
 
-    return () => clearTimeout(timer); 
+    return () => clearTimeout(timer);
   }, [id]);
 
   if (loading) {
@@ -45,16 +47,38 @@ const RoomDetails = () => {
 
       {/* Room Info */}
       <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-800">{room.name}</h1>
-          <p className="text-lg text-gray-600 mt-2">{room.description}</p>
-          <div className="flex items-center text-yellow-400 mt-4">
-            <span>{room.rating}</span>
-            <span className="ml-1">★</span>
+        <div className='max-w-screen-md'>
+          <h1 className="text-[40px] font-bold text-gray-800">{room.name}</h1>
+          <div className='flex items-center gap-[20px]'>
+          <div className="flex items-center text-yellow-400 mt-2">
+            {Array.from({ length: 5 }).map((_, index) => {
+              // Check for full star, half star, or empty star
+              if (index < Math.floor(room.rating)) {
+                return <Star key={index} className="text-yellow-400" />;
+              } else if (index === Math.floor(room.rating) && room.rating % 1 >= 0.5) {
+                return <StarHalf key={index} className="text-yellow-400" />;
+              } else {
+                return <StarBorder key={index} className="text-yellow-400" />;
+              }
+            })}
+            <span className="ml-2">{room.rating}</span>
           </div>
+
+          {/* Comments */}
+          <div className="flex items-center text-gray-500 mt-2">
+            <Comment fontSize="small" className="mr-2" />
+            <span>{room.comments.length} reviews</span>
+          </div>
+
+          {/* Price */}
+          <div className="flex items-center text-gray-500 mt-2">
+            <span>${room.price} per hour</span>
+          </div>
+          </div>
+          
         </div>
+        
         <div className="mt-4 md:mt-0">
-          <div className="text-xl font-semibold text-gray-900">${room.price} per hour</div>
           <Link to="/reservation" className="inline-block mt-4">
             <Button variant="contained" color="primary" size="large">
               Reserve Now

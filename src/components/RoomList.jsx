@@ -85,7 +85,9 @@ const RoomList = () => {
 
                   {/* Description and Actions */}
                   <div className="mt-auto">
-                    <p className="text-sm text-gray-300 mb-4">{room.description}</p>
+                  <p className="text-sm text-gray-300 mb-4 max-w-[300px]">
+  {room.description.length > 70 ? `${room.description.slice(0, 70)}...` : room.description}
+</p>
                     <div className="text-lg font-bold mb-2">$20 per hour</div>
                     <button  className="text-orange-400 hover:underline">
                       More
