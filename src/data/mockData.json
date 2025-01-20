@@ -8,7 +8,7 @@
         "comments": [
           { "user": "Alice", "comment": "Great room!", "rating": 5 }
         ],
-        "image": "/room-images/domino-room.jpg"
+        "image": "public/domino.jpg"
       },
       {
         "id": 2,
@@ -16,7 +16,7 @@
         "description": "A room for playing Uno.",
         "rating": 4.0,
         "comments": [],
-        "image": "/room-images/uno-room.jpg"
+        "image": "public/uno.jpg"
       },
       {
         "id": 3,
@@ -26,7 +26,7 @@
         "comments": [
           { "user": "Bob", "comment": "Challenging games here!", "rating": 4 }
         ],
-        "image": "/room-images/chess-room.jpg"
+        "image": "public/assets/domino.jpg"
       },
       {
         "id": 4,

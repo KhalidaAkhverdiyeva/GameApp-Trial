@@ -11,23 +11,36 @@ const RoomList = () => {
       {/* Game Room Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {mockData.rooms.map(room => (
-          <div key={room.id} className="border rounded-lg shadow-lg overflow-hidden">
+          <div key={room.id} className="border rounded-lg shadow-lg overflow-hidden relative">
+            {/* Image */}
             <img
-  src={room.image}  
-  alt={`${room.name} Image`}
-  className="w-full h-48 object-cover"
-/>
-            <div className="p-4">
-              <h2 className="text-xl font-semibold mb-2">{room.name}</h2>
-              <p className="text-gray-600 mb-2">{room.description}</p>
-              <div className="flex items-center mb-2">
-                <span className="text-yellow-500 mr-1">★</span>
-                <span>{room.rating}</span>
+              src={room.image}
+              alt={`${room.name} Image`}
+              className="w-full h-64 object-cover" 
+            />
+
+            <div className="p-4 flex flex-col justify-between h-full">
+              {/* Room Name and Rating */}
+              <div className="flex justify-between items-center mb-2">
+                <h2 className="text-xl font-semibold">{room.name}</h2>
+                <div className="flex items-center text-yellow-500">
+                  <span>{room.rating}</span>
+                  <span className="ml-1">★</span>
+                </div>
               </div>
-              <div className="text-lg font-bold mb-2">$20 per hour</div> {/* Example price */}
-              <Link to={`/rooms/${room.id}`} className="text-blue-500 hover:underline">
-                View Details
-              </Link>
+
+              {/* Description */}
+              <p className="text-gray-600 mb-2">{room.description}</p>
+
+              <div className="mt-auto">
+                {/* Price */}
+                <div className="text-lg font-bold mb-2">$20 per hour</div>
+                
+                {/* More Button */}
+                <Link to={`/rooms/${room.id}`} className="text-orange-500 hover:underline">
+                  More
+                </Link>
+              </div>
             </div>
           </div>
         ))}
@@ -36,4 +49,4 @@ const RoomList = () => {
   );
 };
 
-export default RoomList; 
+export default RoomList;
