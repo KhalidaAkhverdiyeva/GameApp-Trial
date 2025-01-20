@@ -6,6 +6,8 @@ import Skeleton from '@mui/material/Skeleton';
 
 const RoomList = () => {
   const [loading, setLoading] = useState(true);
+  const [filteredRooms, setFilteredRooms] = useState(mockData.rooms);
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -15,10 +17,19 @@ const RoomList = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const handleSearch = (query) => {
+    const lowerCaseQuery = query.toLowerCase();
+    const filtered = mockData.rooms.filter(room =>
+      room.name.toLowerCase().includes(lowerCaseQuery) ||
+      room.description.toLowerCase().includes(lowerCaseQuery)
+    );
+    setFilteredRooms(filtered);
+  };
+
   return (
     <div className="p-4">
       {/* Header with logo, name, and user icon */}
-      <Header />
+      <Header onSearch={handleSearch} />
 
       {/* Game Room Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-[20px] cursor-pointer">
@@ -42,7 +53,7 @@ const RoomList = () => {
                 </div>
               </div>
             ))
-          : mockData.rooms.map(room => (
+          : filteredRooms.map(room => (
               <div
                 key={room.id}
                 className="border-solid border-[1px] border-[#eae8e8] rounded-[20px] shadow-md overflow-hidden relative group transition-all duration-500"
