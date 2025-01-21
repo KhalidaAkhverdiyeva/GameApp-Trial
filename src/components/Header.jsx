@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types'; // Import PropTypes
+import PropTypes from 'prop-types'; 
 import { Menu, MenuItem, IconButton, Avatar } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 
 const Header = ({ onSearch }) => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [searchQuery, setSearchQuery] = useState(""); // State for search query
+  const [searchQuery, setSearchQuery] = useState("");
   const open = Boolean(anchorEl);
 
   const handleMenuClick = (event) => {
@@ -18,9 +18,9 @@ const Header = ({ onSearch }) => {
   };
 
   const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value); // Update search query
+    setSearchQuery(event.target.value); 
     if (onSearch) {
-      onSearch(event.target.value); // Call the onSearch prop (which can be passed from parent)
+      onSearch(event.target.value);
     }
   };
 
@@ -32,16 +32,17 @@ const Header = ({ onSearch }) => {
       </div>
 
       {/* Search Input */}
-      <div className="flex flex-grow items-center mx-6 relative">
+      <div className="flex flex-grow items-center mx-[12px] md:mx-2 relative">
         <input
           type="text"
           placeholder="Search games..."
-          value={searchQuery} // Bind searchQuery to the input
-          onChange={handleSearchChange} // Handle changes
-          className="w-full px-[20px] py-[15px] border rounded-full shadow-sm outline-none"
+          value={searchQuery}
+          onChange={handleSearchChange}
+          className="w-full px-[20px] py-[15px] border rounded-full shadow-sm outline-none placeholder-transparent sm:placeholder-gray-400"
         />
         <SearchIcon className="absolute right-3 text-orange-500" />
       </div>
+
 
       {/* Right Section with User Icon and Menu */}
       <div
@@ -52,7 +53,7 @@ const Header = ({ onSearch }) => {
           <MenuIcon className="text-orange-500" />
         </IconButton>
         <Avatar
-          src="/path/to/user-icon.png"
+          src="/user-icon.png"
           alt="User Icon"
           className="cursor-pointer"
         />
@@ -88,7 +89,6 @@ const Header = ({ onSearch }) => {
   );
 };
 
-// Add prop type validation
 Header.propTypes = {
   onSearch: PropTypes.func.isRequired,
 };

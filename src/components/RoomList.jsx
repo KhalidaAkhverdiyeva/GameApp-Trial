@@ -28,7 +28,7 @@ const RoomList = () => {
   };
 
   return (
-    <div className="p-4">
+    <div >
       {/* Header with logo, name, and user icon */}
       <Header onSearch={handleSearch} />
 
