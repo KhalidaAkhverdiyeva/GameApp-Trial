@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types'; 
+import PropTypes from 'prop-types';
 import { Menu, MenuItem, IconButton, Avatar } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 
 const Header = ({ onSearch }) => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const open = Boolean(anchorEl);
 
   const handleMenuClick = (event) => {
@@ -18,7 +18,7 @@ const Header = ({ onSearch }) => {
   };
 
   const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value); 
+    setSearchQuery(event.target.value);
     if (onSearch) {
       onSearch(event.target.value);
     }
@@ -28,7 +28,7 @@ const Header = ({ onSearch }) => {
     <header className="flex justify-between items-center p-4 bg-white sticky top-0 z-50">
       {/* Logo Section */}
       <div className="flex items-center">
-        <img src="assets/gamelogo.jpeg" alt="Logo" className="h-[100px] mr-3" />
+        <img src="/assets/gamelogo.jpeg" alt="Logo" className="h-[100px] mr-3" />
       </div>
 
       {/* Search Input */}
@@ -42,7 +42,6 @@ const Header = ({ onSearch }) => {
         />
         <SearchIcon className="absolute right-3 text-orange-500" />
       </div>
-
 
       {/* Right Section with User Icon and Menu */}
       <div

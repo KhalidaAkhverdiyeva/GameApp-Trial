@@ -1,13 +1,19 @@
-
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import RoomList from './components/RoomList';
+import RoomDetails from './components/RoomDetails';
+import Layout from '../layout';
 
 function App() {
-
   return (
-    <>
-      <div className='text-3xl font-bold underline text-blue-500'>Hello</div>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path = "/" element={<Layout />}>
+        <Route path="/" element={<RoomList />} />
+        <Route path="/rooms/:id" element={<RoomDetails />} />
+        </Route>
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

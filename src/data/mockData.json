@@ -1,152 +1,159 @@
 {
-    "rooms": [
-      {
-        "id": 1,
-        "name": "Domino Room",
-        "description": "The Domino Room is designed for both beginners and seasoned players. Enjoy a cozy atmosphere with all the necessary tools for a classic game of dominoes. Whether you're here for a casual game with friends or to challenge your skills in a competitive setting, this room is the perfect place for strategy and fun. We offer a variety of domino sets and a comfortable environment to make every game a memorable experience.",
-        "rating": 4.5,
-        "price": 24,
-        "comments": [
-          { "user": "Alice", "comment": "Great room!", "rating": 5 }
-        ],
-        "image": "/assets/domino.jpg"
-      },
-      {
-        "id": 2,
-        "name": "Uno Room",
-        "description": "Step into the Uno Room, where you can experience the excitement of the popular card game in a dynamic environment. This room is set up for players of all levels, with comfortable seating and a lively atmosphere. Gather your friends for an unforgettable game of Uno, with plenty of chances for friendly competition, laughter, and memorable moments. The room’s design enhances the vibrant spirit of Uno, providing an immersive experience every time you play.",
-        "rating": 4.0,
-        "comments": [],
-        "price": 10,
-        "image": "/assets/uno2.jpg"
-      },
-      {
-        "id": 3,
-        "name": "Chess Room",
-        "description": "For those who prefer strategy and mental challenges, the Chess Room offers an atmosphere conducive to intense focus and deep concentration. Whether you're a beginner or a grandmaster, the room has everything you need for an engaging game of chess. Spacious tables, comfortable seating, and a quiet environment make this room ideal for serious players. Compete against friends or engage in tournaments with fellow chess enthusiasts in a setting designed to bring out the best in your strategic thinking.",
-        "rating": 4.8,
-        "comments": [
-          { "user": "Bob", "comment": "Challenging games here!", "rating": 4 }
-        ],
-        "image": "/assets/chess2.jpg",
-        "price": 20
-      },
-      {
-        "id": 4,
-        "name": "Poker Room",
-        "description": "The Poker Room is the ultimate destination for card game lovers. Designed with high-stakes games in mind, this room offers a sophisticated atmosphere where players can enjoy poker in various styles. Whether you prefer Texas Hold'em, Omaha, or other popular variants, the room is equipped with professional-grade tables, comfortable seating, and a vibrant environment. Test your skills against friends or other experienced players in an exhilarating setting, perfect for both casual games and serious poker nights.",
-        "rating": 4.7,
-        "comments": [
-          { "user": "Charlie", "comment": "Great atmosphere!", "rating": 5 }
-        ],
-            "image": "/assets/poker.jpg",
-        "price": 10
-      },
-      {
-        "id": 5,
-        "name": "Scrabble Room",
-        "description": "For word game lovers, the Scrabble Room provides a space where you can indulge in this classic board game. The room is designed to be inviting and creative, with plenty of space for players to arrange their tiles and brainstorm words. With a relaxed atmosphere, it's ideal for friendly competitions or casual games. Perfect for those who enjoy expanding their vocabulary and having fun while doing so, the Scrabble Room is a great choice for all ages and skill levels.",
-        "rating": 4.3,
-        "comments": [
-          { "user": "Diana", "comment": "Fun and challenging!", "rating": 4 }
-        ],
-            "image": "/assets/scrabble.jpg",
-        "price": 30
-      },
-      {
-        "id": 6,
-        "name": "Monopoly Room",
-        "description": "The Monopoly Room is a tribute to the world's most popular board game. Gather your friends and family for an exciting game where you can build your empire, buy properties, and dominate the board. The room is designed with all the classic elements of Monopoly, offering a nostalgic experience with high-quality boards and accessories. Whether you’re a seasoned pro or a first-time player, the Monopoly Room provides a fun and competitive environment for all players.",
-        "rating": 4.2,
-        "comments": [],
-                "image": "/assets/monopoly.jpg",
-        "price": 35
-      },
-      {
-        "id": 7,
-        "name": "Darts Room",
-        "description": "The Darts Room is perfect for those who enjoy a fast-paced, competitive game. With high-quality dartboards, ample space, and a lively atmosphere, this room is designed for groups of friends or individuals looking to test their dart-throwing skills. Whether you're practicing for a tournament or just enjoying a few friendly rounds, the Darts Room provides everything you need to play in style. Challenge your friends and compete for the best score in a room that captures the fun and excitement of darts.",
-        "rating": 4.6,
-        "comments": [
-          { "user": "Emily", "comment": "Great fun for groups!", "rating": 5 }
-        ],
-        "image": "/assets/dart.jpg",
-        "price": 28
-      },
-      {
-        "id": 8,
-        "name": "Billiards Room",
-        "description": "The Billiards Room offers a relaxed yet competitive environment for billiards and pool enthusiasts. Whether you prefer straight pool, 8-ball, or 9-ball, the room has everything you need to enjoy the game. With professional-grade tables, high-quality cues, and a spacious layout, the Billiards Room is designed to offer the best experience for players of all skill levels. It's perfect for a fun night out or a serious practice session, making it a top destination for billiards lovers.",
-        "rating": 4.9,
-        "comments": [
-          { "user": "Frank", "comment": "Engaging and entertaining!", "rating": 5 }
-        ],
-        "image": "/assets/billiards.jpg",
-        "price": 20
-      },
-      {
-        "id": 9,
-        "name": "Table Tennis Room",
-        "description": "The Table Tennis Room is ideal for those who love fast-paced action and reflex-based games. With multiple high-quality tables and plenty of space for players to move around, this room is designed for both casual games and competitive matches. Whether you're playing singles or doubles, the room provides a fantastic environment for enjoying one of the most exciting sports around. Challenge your friends or engage in a game against fellow enthusiasts in a setting built for fun and competition.",
-        "rating": 4.7,
-        "comments": [],
-        "image": "/assets/tabletennis.jpg",
-        "price": 40
-      },
-      {
-        "id": 10,
-        "name": "FIFA Room",
-        "description": "The FIFA Room is a gaming haven for soccer enthusiasts who want to experience the thrill of playing FIFA with friends. Equipped with high-quality gaming consoles and screens, this room offers the perfect environment for both casual gaming sessions and competitive FIFA tournaments. Whether you're playing alone or challenging others, the FIFA Room provides an immersive experience with its top-tier equipment and lively atmosphere. Get ready to score goals and enjoy the excitement of FIFA in a dedicated room made just for gamers.",
-        "rating": 4.8,
-        "comments": [
-          { "user": "George", "comment": "Best FIFA experience ever!", "rating": 5 }
-        ],
-        "image": "/assets/fifia.jpg",
-        "price": 20
-      },
-      {
-        "id": 11,
-        "name": "Quiz Night Room",
-        "description": "The Quiz Night Room is the place for trivia lovers to put their knowledge to the test. Whether you're a history buff, science geek, or pop culture expert, this room is designed for an interactive and fun quiz experience. The room is equipped with projectors, buzzers, and other necessary tools to create an engaging quiz environment. It’s perfect for team-based competitions or solo players looking to challenge themselves with a series of fun and challenging questions.",
-        "rating": 4.5,
-        "comments": [],
-        "image": "/assets/quiz.jpg",
-        "price": 35
-      },
-      {
-        "id": 12,
-        "name": "Jenga Room",
-        "description": "For those who enjoy a physical and strategic game, the Jenga Room offers a fun and relaxed atmosphere for playing this popular stacking game. With multiple sets of Jenga blocks, this room is ideal for both casual play and more intense competitive games. Whether you're trying to build the tallest tower without it toppling over or simply enjoying a few rounds with friends, the Jenga Room provides a fantastic setting for fun, teamwork, and friendly competition.",
-        "rating": 4.4,
-        "comments": [
-          { "user": "Hannah", "comment": "Fun with family and friends!", "rating": 4 }
-        ],
-        "image": "/assets/jenga.jpg",
-        "price": 10
-      },
-      {
-        "id": 13,
-        "name": "Guess Who Room",
-        "description": "The Guess Who Room brings back the nostalgic experience of playing the classic guessing game. This room is designed for easy gameplay and a fun, interactive environment. Whether you're playing with family, friends, or fellow enthusiasts, the Guess Who Room provides the perfect setting for testing your guessing skills and enjoying lighthearted fun. It’s an ideal space for casual gaming sessions where you can relax, laugh, and enjoy the game.",
-        "rating": 4.3,
-        "comments": [],
-        "image": "/assets/guesswho.jpg",
-        "price": 24
-      },
-      {
-        "id": 14,
-        "name": "Beer Pong Room",
-        "description": "The Beer Pong Room is designed for those who love a good game of beer pong in a lively, social setting. The room is equipped with multiple tables, plenty of cups, ping pong balls, and all the essentials needed for a competitive game. Whether you’re looking for a fun night out with friends or a friendly competition, this room offers a relaxed and fun atmosphere that’s perfect for parties and group activities. Challenge your friends to a match and see who can sink the most cups!",
-        "rating": 4.7,
-        "comments": [
-          { "user": "Ian", "comment": "Perfect for parties!", "rating": 5 }
-        ],
-        "image": "/assets/beerpong.jpg",
-        "price": 15
-      }
-    ],
-    "users": [
-      { "id": 1, "username": "user1", "password": "pass1" }
-    ]
-  }
-  
+  "rooms": [
+    {
+      "id": 1,
+      "name": "Domino Room",
+      "description": "The Domino Room is designed for both beginners and seasoned players. Enjoy a cozy atmosphere with all the necessary tools for a classic game of dominoes. Whether you're here for a casual game with friends or to challenge your skills in a competitive setting, this room is the perfect place for strategy and fun. We offer a variety of domino sets and a comfortable environment to make every game a memorable experience.",
+      "rating": 4.5,
+      "price": 24,
+      "comments": [{ "user": "Alice", "comment": "Great room!", "rating": 5 }],
+      "image": "/assets/domino.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Uno Room",
+      "description": "Step into the Uno Room, where you can experience the excitement of the popular card game in a dynamic environment. This room is set up for players of all levels, with comfortable seating and a lively atmosphere. Gather your friends for an unforgettable game of Uno, with plenty of chances for friendly competition, laughter, and memorable moments. The room’s design enhances the vibrant spirit of Uno, providing an immersive experience every time you play.",
+      "rating": 4.0,
+      "comments": [],
+      "price": 10,
+      "image": "/assets/uno2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Chess Room",
+      "description": "For those who prefer strategy and mental challenges, the Chess Room offers an atmosphere conducive to intense focus and deep concentration. Whether you're a beginner or a grandmaster, the room has everything you need for an engaging game of chess. Spacious tables, comfortable seating, and a quiet environment make this room ideal for serious players. Compete against friends or engage in tournaments with fellow chess enthusiasts in a setting designed to bring out the best in your strategic thinking.",
+      "rating": 4.8,
+      "comments": [
+        { "user": "Bob", "comment": "Challenging games here!", "rating": 4 }
+      ],
+      "image": "/assets/chess2.jpg",
+      "price": 20
+    },
+    {
+      "id": 4,
+      "name": "Poker Room",
+      "description": "The Poker Room is the ultimate destination for card game lovers. Designed with high-stakes games in mind, this room offers a sophisticated atmosphere where players can enjoy poker in various styles. Whether you prefer Texas Hold'em, Omaha, or other popular variants, the room is equipped with professional-grade tables, comfortable seating, and a vibrant environment. Test your skills against friends or other experienced players in an exhilarating setting, perfect for both casual games and serious poker nights.",
+      "rating": 4.7,
+      "comments": [
+        { "user": "Charlie", "comment": "Great atmosphere!", "rating": 5 }
+      ],
+      "image": "/assets/poker.jpg",
+      "price": 10
+    },
+    {
+      "id": 5,
+      "name": "Scrabble Room",
+      "description": "For word game lovers, the Scrabble Room provides a space where you can indulge in this classic board game. The room is designed to be inviting and creative, with plenty of space for players to arrange their tiles and brainstorm words. With a relaxed atmosphere, it's ideal for friendly competitions or casual games. Perfect for those who enjoy expanding their vocabulary and having fun while doing so, the Scrabble Room is a great choice for all ages and skill levels.",
+      "rating": 4.3,
+      "comments": [
+        { "user": "Diana", "comment": "Fun and challenging!", "rating": 4 }
+      ],
+      "image": "/assets/scrabble.jpg",
+      "price": 30
+    },
+    {
+      "id": 6,
+      "name": "Monopoly Room",
+      "description": "The Monopoly Room is a tribute to the world's most popular board game. Gather your friends and family for an exciting game where you can build your empire, buy properties, and dominate the board. The room is designed with all the classic elements of Monopoly, offering a nostalgic experience with high-quality boards and accessories. Whether you’re a seasoned pro or a first-time player, the Monopoly Room provides a fun and competitive environment for all players.",
+      "rating": 4.2,
+      "comments": [],
+      "image": "/assets/monopoly.jpg",
+      "price": 35
+    },
+    {
+      "id": 7,
+      "name": "Darts Room",
+      "description": "The Darts Room is perfect for those who enjoy a fast-paced, competitive game. With high-quality dartboards, ample space, and a lively atmosphere, this room is designed for groups of friends or individuals looking to test their dart-throwing skills. Whether you're practicing for a tournament or just enjoying a few friendly rounds, the Darts Room provides everything you need to play in style. Challenge your friends and compete for the best score in a room that captures the fun and excitement of darts.",
+      "rating": 4.6,
+      "comments": [
+        { "user": "Emily", "comment": "Great fun for groups!", "rating": 5 }
+      ],
+      "image": "/assets/dart.jpg",
+      "price": 28
+    },
+    {
+      "id": 8,
+      "name": "Billiards Room",
+      "description": "The Billiards Room offers a relaxed yet competitive environment for billiards and pool enthusiasts. Whether you prefer straight pool, 8-ball, or 9-ball, the room has everything you need to enjoy the game. With professional-grade tables, high-quality cues, and a spacious layout, the Billiards Room is designed to offer the best experience for players of all skill levels. It's perfect for a fun night out or a serious practice session, making it a top destination for billiards lovers.",
+      "rating": 4.9,
+      "comments": [
+        {
+          "user": "Frank",
+          "comment": "Engaging and entertaining!",
+          "rating": 5
+        }
+      ],
+      "image": "/assets/billiards.jpg",
+      "price": 20
+    },
+    {
+      "id": 9,
+      "name": "Table Tennis Room",
+      "description": "The Table Tennis Room is ideal for those who love fast-paced action and reflex-based games. With multiple high-quality tables and plenty of space for players to move around, this room is designed for both casual games and competitive matches. Whether you're playing singles or doubles, the room provides a fantastic environment for enjoying one of the most exciting sports around. Challenge your friends or engage in a game against fellow enthusiasts in a setting built for fun and competition.",
+      "rating": 4.7,
+      "comments": [],
+      "image": "/assets/tabletennis.jpg",
+      "price": 40
+    },
+    {
+      "id": 10,
+      "name": "FIFA Room",
+      "description": "The FIFA Room is a gaming haven for soccer enthusiasts who want to experience the thrill of playing FIFA with friends. Equipped with high-quality gaming consoles and screens, this room offers the perfect environment for both casual gaming sessions and competitive FIFA tournaments. Whether you're playing alone or challenging others, the FIFA Room provides an immersive experience with its top-tier equipment and lively atmosphere. Get ready to score goals and enjoy the excitement of FIFA in a dedicated room made just for gamers.",
+      "rating": 4.8,
+      "comments": [
+        {
+          "user": "George",
+          "comment": "Best FIFA experience ever!",
+          "rating": 5
+        }
+      ],
+      "image": "/assets/fifia.jpg",
+      "price": 20
+    },
+    {
+      "id": 11,
+      "name": "Quiz Night Room",
+      "description": "The Quiz Night Room is the place for trivia lovers to put their knowledge to the test. Whether you're a history buff, science geek, or pop culture expert, this room is designed for an interactive and fun quiz experience. The room is equipped with projectors, buzzers, and other necessary tools to create an engaging quiz environment. It’s perfect for team-based competitions or solo players looking to challenge themselves with a series of fun and challenging questions.",
+      "rating": 4.5,
+      "comments": [],
+      "image": "/assets/quiz.jpg",
+      "price": 35
+    },
+    {
+      "id": 12,
+      "name": "Jenga Room",
+      "description": "For those who enjoy a physical and strategic game, the Jenga Room offers a fun and relaxed atmosphere for playing this popular stacking game. With multiple sets of Jenga blocks, this room is ideal for both casual play and more intense competitive games. Whether you're trying to build the tallest tower without it toppling over or simply enjoying a few rounds with friends, the Jenga Room provides a fantastic setting for fun, teamwork, and friendly competition.",
+      "rating": 4.4,
+      "comments": [
+        {
+          "user": "Hannah",
+          "comment": "Fun with family and friends!",
+          "rating": 4
+        }
+      ],
+      "image": "/assets/jenga.jpg",
+      "price": 10
+    },
+    {
+      "id": 13,
+      "name": "Guess Who Room",
+      "description": "The Guess Who Room brings back the nostalgic experience of playing the classic guessing game. This room is designed for easy gameplay and a fun, interactive environment. Whether you're playing with family, friends, or fellow enthusiasts, the Guess Who Room provides the perfect setting for testing your guessing skills and enjoying lighthearted fun. It’s an ideal space for casual gaming sessions where you can relax, laugh, and enjoy the game.",
+      "rating": 4.3,
+      "comments": [],
+      "image": "/assets/guesswho.jpg",
+      "price": 24
+    },
+    {
+      "id": 14,
+      "name": "Beer Pong Room",
+      "description": "The Beer Pong Room is designed for those who love a good game of beer pong in a lively, social setting. The room is equipped with multiple tables, plenty of cups, ping pong balls, and all the essentials needed for a competitive game. Whether you’re looking for a fun night out with friends or a friendly competition, this room offers a relaxed and fun atmosphere that’s perfect for parties and group activities. Challenge your friends to a match and see who can sink the most cups!",
+      "rating": 4.7,
+      "comments": [
+        { "user": "Ian", "comment": "Perfect for parties!", "rating": 5 }
+      ],
+      "image": "/assets/beerpong.jpg",
+      "price": 15
+    }
+  ],
+  "users": [{ "id": 1, "username": "user1", "password": "pass1" }]
+}

@@ -22,8 +22,9 @@ const RoomDetails = () => {
   useEffect(() => {
     setLoading(true);
     const timer = setTimeout(() => {
-      const savedData = JSON.parse(localStorage.getItem('rooms')) || mockData.rooms;
-      const roomDetail = savedData.find(room => room.id === parseInt(id));
+      const savedData =
+        JSON.parse(localStorage.getItem('rooms')) || mockData.rooms;
+      const roomDetail = savedData.find((room) => room.id === parseInt(id));
       setRoom(roomDetail);
       setLoading(false);
     }, 2000);
@@ -47,15 +48,18 @@ const RoomDetails = () => {
         comments: [
           ...room.comments,
           {
-            user: "User",
+            user: 'User',
             comment: newReview,
             rating: newRating,
-          }
-        ]
-      }
+          },
+        ],
+      };
       setRoom(updatedRoom);
-      const savedData = JSON.parse(localStorage.getItem('rooms')) || mockData.rooms;
-      const updatedData = savedData.map((room) => room.id === parseInt(id) ? updatedRoom : room);
+      const savedData =
+        JSON.parse(localStorage.getItem('rooms')) || mockData.rooms;
+      const updatedData = savedData.map((room) =>
+        room.id === parseInt(id) ? updatedRoom : room
+      );
       localStorage.setItem('rooms', JSON.stringify(updatedData));
       setNewReview('');
       setNewRating('');
@@ -68,15 +72,17 @@ const RoomDetails = () => {
       return;
     }
     setIsReservationModalOpen(true);
-  }
+  };
 
   const closeReservationModal = () => {
     setIsReservationModalOpen(false);
-  }
+  };
 
   const handleReserve = ({ date, time, people }) => {
     // Check for conflicts
-    const isConflict = room.reservations?.some(reservation => reservation.date === date && reservation.time === time);
+    const isConflict = room.reservations?.some(
+      (reservation) => reservation.date === date && reservation.time === time
+    );
 
     if (isConflict) {
       setSnackbarMessage(`The room is already booked for ${date} at ${time}.`);
@@ -85,11 +91,14 @@ const RoomDetails = () => {
       const newReservation = { date, time, people };
       const updatedRoom = {
         ...room,
-        reservations: [...(room.reservations || []), newReservation]
+        reservations: [...(room.reservations || []), newReservation],
       };
       setRoom(updatedRoom);
-      const savedData = JSON.parse(localStorage.getItem('rooms')) || mockData.rooms;
-      const updatedData = savedData.map((room) => room.id === parseInt(id) ? updatedRoom : room);
+      const savedData =
+        JSON.parse(localStorage.getItem('rooms')) || mockData.rooms;
+      const updatedData = savedData.map((room) =>
+        room.id === parseInt(id) ? updatedRoom : room
+      );
       localStorage.setItem('rooms', JSON.stringify(updatedData));
       setSnackbarMessage(`Reservation successful for ${date} at ${time}.`);
       setSnackbarSeverity('success');
@@ -97,11 +106,11 @@ const RoomDetails = () => {
 
     setSnackbarOpen(true);
     closeReservationModal();
-  }
+  };
 
   const handleSnackbarClose = () => {
     setSnackbarOpen(false);
-  }
+  };
 
   if (loading) {
     return (
@@ -112,7 +121,11 @@ const RoomDetails = () => {
   }
 
   if (!room) {
-    return <div className="flex justify-center items-center h-screen">Room not found</div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        Room not found
+      </div>
+    );
   }
 
   return (
@@ -128,14 +141,17 @@ const RoomDetails = () => {
 
       {/* Room Info */}
       <div className="flex flex-col justify-between mb-6">
-        <div className='max-w-screen-md'>
+        <div className="max-w-screen-md">
           <h1 className="text-[40px] font-bold text-gray-800">{room.name}</h1>
-          <div className='flex items-center gap-[20px]'>
+          <div className="flex items-center gap-[20px]">
             <div className="flex items-center text-yellow-400 mt-2">
               {Array.from({ length: 5 }).map((_, index) => {
                 if (index < Math.floor(room.rating)) {
                   return <Star key={index} className="text-yellow-400" />;
-                } else if (index === Math.floor(room.rating) && room.rating % 1 >= 0.5) {
+                } else if (
+                  index === Math.floor(room.rating) &&
+                  room.rating % 1 >= 0.5
+                ) {
                   return <StarHalf key={index} className="text-yellow-400" />;
                 } else {
                   return <StarBorder key={index} className="text-yellow-400" />;
@@ -156,26 +172,35 @@ const RoomDetails = () => {
             </div>
           </div>
         </div>
-        <p className='text-[18px] text-gray-500 py-3'>{room.description}</p>
+        <p className="text-[18px] text-gray-500 py-3">{room.description}</p>
 
         <div className="mt-4 md:mt-0">
-          <button onClick={openReservationModal} className="inline-block mt-4">
-            <button className='bg-orange-500 text-white px-[20px] py-[15px] rounded-[20px]'>Reserve Now</button>
-          </button>
-          {
-            isReservationModalOpen && (
-              <ReservationModal isOpen={isReservationModalOpen} onClose={closeReservationModal} onReserve={handleReserve} />
-            )
-          }
+          <div onClick={openReservationModal} className="inline-block mt-4">
+            <button className="bg-orange-500 text-white px-[20px] py-[15px] rounded-[20px]">
+              Reserve Now
+            </button>
+          </div>
+          {isReservationModalOpen && (
+            <ReservationModal
+              isOpen={isReservationModalOpen}
+              onClose={closeReservationModal}
+              onReserve={handleReserve}
+            />
+          )}
         </div>
       </div>
 
       {/* Comments Section */}
-      <h2 className="text-2xl font-semibold text-gray-800 mb-6 border-b pb-2">Guest Reviews</h2>
+      <h2 className="text-2xl font-semibold text-gray-800 mb-6 border-b pb-2">
+        Guest Reviews
+      </h2>
 
       {/* Form to Add a Review */}
       <div className="mb-8">
-        <form onSubmit={handleAddReview} className="bg-white shadow-md rounded-lg p-4">
+        <form
+          onSubmit={handleAddReview}
+          className="bg-white shadow-md rounded-lg p-4"
+        >
           <textarea
             placeholder="Write your review..."
             value={newReview}
@@ -186,10 +211,12 @@ const RoomDetails = () => {
           ></textarea>
           <div className="flex items-center justify-between mt-3">
             <div className="flex items-center">
-              <label htmlFor="rating" className="mr-4 text-gray-700">Rating:</label>
+              <label htmlFor="rating" className="mr-4 text-gray-700">
+                Rating:
+              </label>
               <Rating
                 name="rating"
-                value={newRating}
+                value={Number(newRating)}
                 onChange={(e, value) => setNewRating(value)}
                 precision={1}
                 size="large"
@@ -212,7 +239,9 @@ const RoomDetails = () => {
         {room.comments.map((comment, index) => (
           <li key={index} className="bg-white shadow rounded-lg p-4">
             <div className="flex items-center justify-between">
-              <strong className="font-semibold text-gray-800">{comment.user}</strong>
+              <strong className="font-semibold text-gray-800">
+                {comment.user}
+              </strong>
               <div className="flex items-center text-yellow-400">
                 <span className="font-semibold">{comment.rating}</span>
                 <span className="ml-1">★</span>
@@ -225,7 +254,10 @@ const RoomDetails = () => {
 
       {/* Login Modal */}
       {isLoginModalOpen && (
-        <LoginModal onClose={() => setIsLoginModalOpen(false)} setIsLoggedIn={setIsLoggedIn} />
+        <LoginModal
+          onClose={() => setIsLoginModalOpen(false)}
+          setIsLoggedIn={setIsLoggedIn}
+        />
       )}
 
       {/* Snackbar for notifications */}
@@ -235,7 +267,11 @@ const RoomDetails = () => {
         onClose={handleSnackbarClose}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
       >
-        <Alert onClose={handleSnackbarClose} severity={snackbarSeverity} sx={{ width: '100%' }}>
+        <Alert
+          onClose={handleSnackbarClose}
+          severity={snackbarSeverity}
+          sx={{ width: '100%' }}
+        >
           {snackbarMessage}
         </Alert>
       </Snackbar>

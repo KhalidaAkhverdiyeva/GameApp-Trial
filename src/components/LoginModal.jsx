@@ -28,7 +28,9 @@ const LoginModal = ({ onClose, setIsLoggedIn }) => {
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
       <div className="bg-white p-6 rounded shadow-lg">
-        <h2 className="text-2xl font-semibold mb-4">{isSignup ? 'Sign Up' : 'Login'}</h2>
+        <h2 className="text-2xl font-semibold mb-4">
+          {isSignup ? 'Sign Up' : 'Login'}
+        </h2>
         <input
           type="text"
           placeholder="Username"
@@ -69,7 +71,9 @@ const LoginModal = ({ onClose, setIsLoggedIn }) => {
             onClick={() => setIsSignup(!isSignup)}
             className="text-blue-500 hover:underline"
           >
-            {isSignup ? 'Already have an account? Login' : "Don't have an account? Sign Up"}
+            {isSignup
+              ? 'Already have an account? Login'
+              : "Don't have an account? Sign Up"}
           </button>
         </div>
       </div>
@@ -82,4 +86,4 @@ LoginModal.propTypes = {
   setIsLoggedIn: PropTypes.func.isRequired,
 };
 
-export default LoginModal; 
+export default LoginModal;
