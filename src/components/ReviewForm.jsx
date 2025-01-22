@@ -2,7 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import { Dialog, DialogActions, DialogContent, DialogTitle, Button, Rating } from "@mui/material";
 
-export default function ReviewForm({ isLoggedIn, handleAddReview, handleUpdateReview, editingReview, openLoginModal }) {
+export default function ReviewForm({ isLoggedIn, handleAddReview, openLoginModal }) {
   const [newReview, setNewReview] = useState("");
   const [newRating, setNewRating] = useState(0);
   const [showLoginDialog, setShowLoginDialog] = useState(false);
@@ -10,16 +10,14 @@ export default function ReviewForm({ isLoggedIn, handleAddReview, handleUpdateRe
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!isLoggedIn) {
-      setShowLoginDialog(true); // Show dialog if not logged in
+      setShowLoginDialog(true);
       return;
     }
-    if (editingReview !== null) {
-      handleUpdateReview();
-    } else {
-      handleAddReview();
+    if (newReview.trim() !== "" && newRating > 0) {
+      handleAddReview(newReview, newRating);
+      setNewReview("");
+      setNewRating(0);
     }
-    setNewReview(""); // Clear the review field after submitting
-    setNewRating(0);  // Reset rating
   };
 
   const handleCloseDialog = () => {
@@ -28,7 +26,7 @@ export default function ReviewForm({ isLoggedIn, handleAddReview, handleUpdateRe
 
   const handleLoginClick = () => {
     handleCloseDialog();
-    openLoginModal(); // Open login modal
+    openLoginModal();
   };
 
   return (
@@ -61,12 +59,11 @@ export default function ReviewForm({ isLoggedIn, handleAddReview, handleUpdateRe
             type="submit"
             className="bg-orange-500 text-white px-4 py-2 rounded-lg shadow hover:bg-orange-600"
           >
-            {editingReview !== null ? "Update Review" : "Submit Review"}
+            Submit Review
           </button>
         </div>
       </form>
 
-      {/* Material-UI Dialog for Login Prompt */}
       <Dialog
         open={showLoginDialog}
         onClose={handleCloseDialog}
@@ -94,11 +91,8 @@ export default function ReviewForm({ isLoggedIn, handleAddReview, handleUpdateRe
   );
 }
 
-// Define prop types for the component
 ReviewForm.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
   handleAddReview: PropTypes.func.isRequired,
-  handleUpdateReview: PropTypes.func.isRequired,
-  editingReview: PropTypes.number, // or PropTypes.oneOfType([PropTypes.number, PropTypes.null])
   openLoginModal: PropTypes.func.isRequired,
 };

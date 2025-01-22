@@ -11,15 +11,12 @@ const RoomDetails = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [room, setRoom] = useState(null);
-  const [newReview, setNewReview] = useState('');
-  const [newRating, setNewRating] = useState('');
   const [isReservationModalOpen, setIsReservationModalOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
   const [snackbarSeverity, setSnackbarSeverity] = useState('success');
-  const [editingReview, setEditingReview] = useState(null);
   const [showLoginDialog, setShowLoginDialog] = useState(false);
 
   const currentUser = localStorage.getItem('username') || 'User';
@@ -27,90 +24,47 @@ const RoomDetails = () => {
   useEffect(() => {
     setLoading(true);
     const timer = setTimeout(() => {
-      const savedData =
-        JSON.parse(localStorage.getItem('rooms')) || mockData.rooms;
+      const savedData = JSON.parse(localStorage.getItem('rooms')) || mockData.rooms;
       const roomDetail = savedData.find((room) => room.id === parseInt(id));
       setRoom(roomDetail);
       setLoading(false);
     }, 2000);
 
-    // Check login status
     const loggedInStatus = localStorage.getItem('isLoggedIn') === 'true';
     setIsLoggedIn(loggedInStatus);
 
     return () => clearTimeout(timer);
   }, [id]);
 
-  const handleAddReview = (e) => {
-    e.preventDefault();
+  const handleAddReview = (reviewText, rating) => {
     if (!isLoggedIn) {
       setIsLoginModalOpen(true);
       return;
     }
-    if (newReview && newRating) {
-      const updatedRoom = {
-        ...room,
-        comments: [
-          ...room.comments,
-          {
-            user: currentUser,
-            comment: newReview,
-            rating: newRating,
-            date: new Date().toLocaleDateString(),
-          },
-        ],
-      };
-      setRoom(updatedRoom);
-      const savedData =
-        JSON.parse(localStorage.getItem('rooms')) || mockData.rooms;
-      const updatedData = savedData.map((room) =>
-        room.id === parseInt(id) ? updatedRoom : room
-      );
-      localStorage.setItem('rooms', JSON.stringify(updatedData));
-      setNewReview('');
-      setNewRating('');
-    }
-  };
+    
+    const updatedRoom = {
+      ...room,
+      comments: [
+        ...room.comments,
+        {
+          user: currentUser,
+          comment: reviewText,
+          rating: rating,
+          date: new Date().toLocaleDateString(),
+        },
+      ],
+    };
 
-  const handleEditReview = (index) => {
-    const review = room.comments[index];
-    setNewReview(review.comment);
-    setNewRating(review.rating);
-    setEditingReview(index);
-  };
-
-  const handleDeleteReview = (index) => {
-    const updatedComments = room.comments.filter((_, i) => i !== index);
-    const updatedRoom = { ...room, comments: updatedComments };
     setRoom(updatedRoom);
-    const savedData =
-      JSON.parse(localStorage.getItem('rooms')) || mockData.rooms;
+    const savedData = JSON.parse(localStorage.getItem('rooms')) || mockData.rooms;
     const updatedData = savedData.map((room) =>
       room.id === parseInt(id) ? updatedRoom : room
     );
     localStorage.setItem('rooms', JSON.stringify(updatedData));
-  };
-
-  const handleUpdateReview = (e) => {
-    e.preventDefault();
-    if (editingReview !== null) {
-      const updatedComments = room.comments.map((comment, index) =>
-        index === editingReview
-          ? { ...comment, comment: newReview, rating: newRating }
-          : comment
-      );
-      const updatedRoom = { ...room, comments: updatedComments };
-      setRoom(updatedRoom);
-      const savedData =
-        JSON.parse(localStorage.getItem('rooms')) || mockData.rooms;
-      const updatedData = savedData.map((room) =>
-        room.id === parseInt(id) ? updatedRoom : room
-      );
-      localStorage.setItem('rooms', JSON.stringify(updatedData));
-      setNewReview('');
-      setNewRating('');
-      setEditingReview(null);
-    }
+    
+    setSnackbarMessage('Review added successfully!');
+    setSnackbarSeverity('success');
+    setSnackbarOpen(true);
   };
 
   const openReservationModal = () => {
@@ -255,8 +209,6 @@ const RoomDetails = () => {
       <ReviewForm
         isLoggedIn={isLoggedIn}
         handleAddReview={handleAddReview}
-        handleUpdateReview={handleUpdateReview}
-        editingReview={editingReview}
         openLoginModal={() => setIsLoginModalOpen(true)}
       />
 
@@ -284,22 +236,6 @@ const RoomDetails = () => {
               </div>
             </div>
             <p className="text-gray-600 mt-2">{comment.comment}</p>
-            {comment.user === currentUser && (
-              <div className="flex justify-end mt-2">
-                <button
-                  onClick={() => handleEditReview(index)}
-                  className="text-blue-500 hover:underline mr-4"
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={() => handleDeleteReview(index)}
-                  className="text-red-500 hover:underline"
-                >
-                  Delete
-                </button>
-              </div>
-            )}
           </li>
         ))}
       </ul>
