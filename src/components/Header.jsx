@@ -23,6 +23,13 @@ const Header = ({ onSearch }) => {
       onSearch(event.target.value);
     }
   };
+   const handleLogout = () => {
+    localStorage.removeItem("username")
+    localStorage.removeItem("password")
+    localStorage.removeItem("isLoggedIn")
+
+
+   }
 
   return (
     <header className="flex justify-between items-center p-4 bg-white sticky top-0 z-50">
@@ -82,7 +89,7 @@ const Header = ({ onSearch }) => {
         <MenuItem onClick={handleClose}>Sign Up</MenuItem>
         <MenuItem onClick={handleClose}>Host Dashboard</MenuItem>
         <MenuItem onClick={handleClose}>Settings</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleLogout}>Logout</MenuItem>
       </Menu>
     </header>
   );

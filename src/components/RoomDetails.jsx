@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import mockData from '../data/mockData.json';
-import { CircularProgress, Rating, Snackbar, Alert } from '@mui/material';
+import { CircularProgress, Snackbar, Alert, Dialog, DialogActions, DialogContent, DialogTitle, Button } from '@mui/material';
 import { Star, Comment, StarBorder, StarHalf } from '@mui/icons-material';
 import ReservationModal from './ReservationModal';
 import LoginModal from './LoginModal';
+import ReviewForm from './ReviewForm';
 
 const RoomDetails = () => {
   const { id } = useParams();
@@ -18,6 +19,10 @@ const RoomDetails = () => {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
   const [snackbarSeverity, setSnackbarSeverity] = useState('success');
+  const [editingReview, setEditingReview] = useState(null);
+  const [showLoginDialog, setShowLoginDialog] = useState(false);
+
+  const currentUser = localStorage.getItem('username') || 'User';
 
   useEffect(() => {
     setLoading(true);
@@ -48,9 +53,10 @@ const RoomDetails = () => {
         comments: [
           ...room.comments,
           {
-            user: 'User',
+            user: currentUser,
             comment: newReview,
             rating: newRating,
+            date: new Date().toLocaleDateString(),
           },
         ],
       };
@@ -66,9 +72,50 @@ const RoomDetails = () => {
     }
   };
 
+  const handleEditReview = (index) => {
+    const review = room.comments[index];
+    setNewReview(review.comment);
+    setNewRating(review.rating);
+    setEditingReview(index);
+  };
+
+  const handleDeleteReview = (index) => {
+    const updatedComments = room.comments.filter((_, i) => i !== index);
+    const updatedRoom = { ...room, comments: updatedComments };
+    setRoom(updatedRoom);
+    const savedData =
+      JSON.parse(localStorage.getItem('rooms')) || mockData.rooms;
+    const updatedData = savedData.map((room) =>
+      room.id === parseInt(id) ? updatedRoom : room
+    );
+    localStorage.setItem('rooms', JSON.stringify(updatedData));
+  };
+
+  const handleUpdateReview = (e) => {
+    e.preventDefault();
+    if (editingReview !== null) {
+      const updatedComments = room.comments.map((comment, index) =>
+        index === editingReview
+          ? { ...comment, comment: newReview, rating: newRating }
+          : comment
+      );
+      const updatedRoom = { ...room, comments: updatedComments };
+      setRoom(updatedRoom);
+      const savedData =
+        JSON.parse(localStorage.getItem('rooms')) || mockData.rooms;
+      const updatedData = savedData.map((room) =>
+        room.id === parseInt(id) ? updatedRoom : room
+      );
+      localStorage.setItem('rooms', JSON.stringify(updatedData));
+      setNewReview('');
+      setNewRating('');
+      setEditingReview(null);
+    }
+  };
+
   const openReservationModal = () => {
     if (!isLoggedIn) {
-      setIsLoginModalOpen(true);
+      setShowLoginDialog(true);
       return;
     }
     setIsReservationModalOpen(true);
@@ -110,6 +157,15 @@ const RoomDetails = () => {
 
   const handleSnackbarClose = () => {
     setSnackbarOpen(false);
+  };
+
+  const handleCloseDialog = () => {
+    setShowLoginDialog(false);
+  };
+
+  const handleLoginClick = () => {
+    handleCloseDialog();
+    setIsLoginModalOpen(true);
   };
 
   if (loading) {
@@ -195,59 +251,55 @@ const RoomDetails = () => {
         Guest Reviews
       </h2>
 
-      {/* Form to Add a Review */}
-      <div className="mb-8">
-        <form
-          onSubmit={handleAddReview}
-          className="bg-white shadow-md rounded-lg p-4"
-        >
-          <textarea
-            placeholder="Write your review..."
-            value={newReview}
-            onChange={(e) => setNewReview(e.target.value)}
-            className="w-full p-3 border rounded-lg outline-none focus:ring-2 focus:ring-orange-400"
-            rows="4"
-            disabled={!isLoggedIn}
-          ></textarea>
-          <div className="flex items-center justify-between mt-3">
-            <div className="flex items-center">
-              <label htmlFor="rating" className="mr-4 text-gray-700">
-                Rating:
-              </label>
-              <Rating
-                name="rating"
-                value={Number(newRating)}
-                onChange={(e, value) => setNewRating(value)}
-                precision={1}
-                size="large"
-                disabled={!isLoggedIn}
-              />
-            </div>
-            <button
-              type="submit"
-              className="bg-orange-500 text-white px-4 py-2 rounded-lg shadow hover:bg-orange-600"
-              disabled={!isLoggedIn}
-            >
-              Submit Review
-            </button>
-          </div>
-        </form>
-      </div>
+      {/* Form to Add or Edit a Review */}
+      <ReviewForm
+        isLoggedIn={isLoggedIn}
+        handleAddReview={handleAddReview}
+        handleUpdateReview={handleUpdateReview}
+        editingReview={editingReview}
+        openLoginModal={() => setIsLoginModalOpen(true)}
+      />
 
       {/* Display Existing Reviews */}
       <ul className="space-y-6">
         {room.comments.map((comment, index) => (
           <li key={index} className="bg-white shadow rounded-lg p-4">
             <div className="flex items-center justify-between">
-              <strong className="font-semibold text-gray-800">
-                {comment.user}
-              </strong>
+              <div className="flex items-center">
+                <div className="bg-gray-700 rounded-full w-[50px] h-[50px] text-[20px] flex items-center justify-center text-white ">
+                  {comment.user.charAt(0)}
+                </div>
+                <div className="ml-3">
+                  <strong className=" text-gray-800">
+                    {comment.user}
+                  </strong>
+                  <div className="text-sm text-gray-500">
+                    {comment.date}
+                  </div>
+                </div>
+              </div>
               <div className="flex items-center text-yellow-400">
                 <span className="font-semibold">{comment.rating}</span>
                 <span className="ml-1">★</span>
               </div>
             </div>
             <p className="text-gray-600 mt-2">{comment.comment}</p>
+            {comment.user === currentUser && (
+              <div className="flex justify-end mt-2">
+                <button
+                  onClick={() => handleEditReview(index)}
+                  className="text-blue-500 hover:underline mr-4"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDeleteReview(index)}
+                  className="text-red-500 hover:underline"
+                >
+                  Delete
+                </button>
+              </div>
+            )}
           </li>
         ))}
       </ul>
@@ -259,6 +311,31 @@ const RoomDetails = () => {
           setIsLoggedIn={setIsLoggedIn}
         />
       )}
+
+      {/* Login Dialog */}
+      <Dialog
+        open={showLoginDialog}
+        onClose={handleCloseDialog}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{"Login Required"}</DialogTitle>
+        <DialogContent>
+          You need to log in to make a reservation. Please log in to proceed.
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseDialog} color="primary">
+            Cancel
+          </Button>
+          <Button
+            onClick={handleLoginClick}
+            color="primary"
+            autoFocus
+          >
+            Log in
+          </Button>
+        </DialogActions>
+      </Dialog>
 
       {/* Snackbar for notifications */}
       <Snackbar
